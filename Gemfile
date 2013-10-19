@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 # Uncomment the database that you have configured in config/database.yml
 # ----------------------------------------------------------------------
-# gem 'mysql2'
-# gem 'sqlite3'
-gem 'pg'
+# gem 'mysql2', :platform => :ruby
+# gem 'sqlite3', :platform => :ruby
+gem 'pg', :platform => :ruby
 
 # Allows easy switching between locally developed gems, and gems installed from rubygems.org
 # See README for more info at: https://github.com/ndbroadbent/bundler_local_development
@@ -41,7 +41,7 @@ gem 'premailer', :require => false
 remove 'fat_free_crm'
 
 group :development do
-  gem 'thin'
+  gem 'thin', :platform => :ruby
   gem 'quiet_assets'
   gem 'capistrano'
   gem 'capistrano_colors'
@@ -61,7 +61,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'headless'
-  gem 'debugger' unless ENV["CI"]
+  gem 'debugger', :platform => :ruby unless ENV["CI"]
   gem 'pry-rails' unless ENV["CI"]
 end
 
@@ -69,7 +69,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
-  gem "acts_as_fu"
+  gem "acts_as_fu", :platform => :ruby
   gem 'factory_girl_rails'
   gem 'zeus' unless ENV["CI"]
   gem 'coveralls', :require => false
@@ -91,3 +91,5 @@ group :assets do
 end
 
 gem 'turbo-sprockets-rails3'
+
+gem 'psych', :platform => :ruby
